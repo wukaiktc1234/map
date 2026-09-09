@@ -1,0 +1,1270 @@
+metadata:
+  version: "2.0"
+  title: "Decision Baseline Integrity & Conflict Reconciliation Registry v2"
+  description: "决策协调注册表 - 记录所有决策的状态、关系和冲突信息"
+  generated_date: "2026-09-09"
+  total_decisions: 30
+
+# ============================================================================
+# LOCK-001~010: 已锁定决策（LOCKED）
+# ============================================================================
+
+LOCK-001:
+  title: "技术栈选型 - React + TypeScript"
+  category: "技术架构"
+  current_reality: "项目采用 React 18 + TypeScript 作为前端技术栈"
+  existing_decision: "使用 React + TypeScript 构建前端应用"
+  expected_design: "统一使用 React + TypeScript，禁止引入其他框架"
+  question: "前端技术栈应该选择什么？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "LOCKED"
+  options:
+    - option: "React + TypeScript"
+      pros: ["生态系统成熟", "团队熟悉", "社区支持"]
+      cons: ["包体积较大"]
+    - option: "Vue + TypeScript"
+      pros: ["学习曲线平缓", "轻量级"]
+      cons: ["生态系统相对较小"]
+  recommended_option: "React + TypeScript"
+  recommendation_reason: "团队技术储备充足，生态系统完善"
+  depends_on: []
+  blocks: ["DEC-001"]
+  unlocks: ["DEC-002", "DEC-003"]
+  affected_foundations: ["FND-001", "FND-002"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-001", "CAP-002"]
+  affected_transactions: []
+  affected_domains: ["DOM-001", "DOM-002"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-001"]
+  principles: ["PRI-001"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "无迁移影响"
+  risk: "LOW"
+  evidence: "团队已有 React 项目经验"
+  confidence: "HIGH"
+
+LOCK-002:
+  title: "状态管理方案 - Redux Toolkit"
+  category: "技术架构"
+  current_reality: "使用 Redux Toolkit 进行全局状态管理"
+  existing_decision: "采用 Redux Toolkit 管理应用状态"
+  expected_design: "统一状态管理方案，禁止混用其他状态库"
+  question: "状态管理应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "LOCKED"
+  options:
+    - option: "Redux Toolkit"
+      pros: ["官方推荐", "TypeScript 支持好", "中间件丰富"]
+      cons: ["学习曲线陡峭", "模板代码多"]
+    - option: "Zustand"
+      pros: ["轻量级", "简单易用"]
+      cons: ["生态相对较小"]
+  recommended_option: "Redux Toolkit"
+  recommendation_reason: "企业级应用状态管理的最佳选择"
+  depends_on: ["LOCK-001"]
+  blocks: ["DEC-004"]
+  unlocks: ["DEC-005"]
+  affected_foundations: ["FND-003"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-003"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-002"]
+  principles: ["PRI-002"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "无迁移影响"
+  risk: "LOW"
+  evidence: "Redux Toolkit 是 React 生态标准方案"
+  confidence: "HIGH"
+
+LOCK-003:
+  title: "路由方案 - React Router v6"
+  category: "技术架构"
+  current_reality: "使用 React Router v6 进行前端路由管理"
+  existing_decision: "采用 React Router v6 实现前端路由"
+  expected_design: "统一使用 React Router v6，禁止引入其他路由库"
+  question: "前端路由应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "LOCKED"
+  options:
+    - option: "React Router v6"
+      pros: ["官方推荐", "功能完善", "文档齐全"]
+      cons: ["配置复杂"]
+    - option: "TanStack Router"
+      pros: ["类型安全", "性能好"]
+      cons: ["较新，生态不成熟"]
+  recommended_option: "React Router v6"
+  recommendation_reason: "React 生态标准路由方案"
+  depends_on: ["LOCK-001"]
+  blocks: ["DEC-006"]
+  unlocks: ["DEC-007"]
+  affected_foundations: ["FND-004"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-004"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-003"]
+  principles: ["PRI-003"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "无迁移影响"
+  risk: "LOW"
+  evidence: "React Router 是 React 生态标准路由方案"
+  confidence: "HIGH"
+
+LOCK-004:
+  title: "UI 组件库 - Ant Design"
+  category: "UI/UX"
+  current_reality: "使用 Ant Design 5.x 作为 UI 组件库"
+  existing_decision: "采用 Ant Design 作为基础 UI 组件库"
+  expected_design: "统一使用 Ant Design，禁止引入其他 UI 库"
+  question: "UI 组件库应该选择什么？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "LOCKED"
+  options:
+    - option: "Ant Design"
+      pros: ["企业级组件丰富", "文档完善", "中文社区活跃"]
+      cons: ["包体积大", "定制性有限"]
+    - option: "Material UI"
+      pros: ["设计规范统一", "国际化好"]
+      cons: ["与国内设计习惯不符"]
+  recommended_option: "Ant Design"
+  recommendation_reason: "企业级中后台应用的最佳选择"
+  depends_on: ["LOCK-001"]
+  blocks: ["DEC-008"]
+  unlocks: ["DEC-009"]
+  affected_foundations: ["FND-005"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-005"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-004"]
+  principles: ["PRI-004"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "无迁移影响"
+  risk: "LOW"
+  evidence: "Ant Design 是国内企业级应用标准组件库"
+  confidence: "HIGH"
+
+LOCK-005:
+  title: "构建工具 - Vite"
+  category: "技术架构"
+  current_reality: "使用 Vite 作为前端构建工具"
+  existing_decision: "采用 Vite 进行前端构建和开发"
+  expected_design: "统一使用 Vite，禁止引入 Webpack 等其他构建工具"
+  question: "前端构建工具应该选择什么？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "LOCKED"
+  options:
+    - option: "Vite"
+      pros: ["开发速度快", "配置简单", "HMR 高效"]
+      cons: ["插件生态相对较小"]
+    - option: "Webpack"
+      pros: ["生态成熟", "插件丰富"]
+      cons: ["配置复杂", "构建速度慢"]
+  recommended_option: "Vite"
+  recommendation_reason: "现代前端开发的首选构建工具"
+  depends_on: ["LOCK-001"]
+  blocks: ["DEC-010"]
+  unlocks: ["DEC-011"]
+  affected_foundations: ["FND-006"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-006"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-005"]
+  principles: ["PRI-005"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "无迁移影响"
+  risk: "LOW"
+  evidence: "Vite 是现代前端开发标准构建工具"
+  confidence: "HIGH"
+
+LOCK-006:
+  title: "代码规范 - ESLint + Prettier"
+  category: "工程规范"
+  current_reality: "使用 ESLint + Prettier 进行代码规范管理"
+  existing_decision: "采用 ESLint + Prettier 统一代码风格"
+  expected_design: "强制执行 ESLint + Prettier 规范，禁止跳过检查"
+  question: "代码规范应该采用什么方案？"
+  decision_type: "PROCESS"
+  status: "LOCKED"
+  options:
+    - option: "ESLint + Prettier"
+      pros: ["功能强大", "可配置性高", "社区支持"]
+      cons: ["配置复杂"]
+    - option: "Biome"
+      pros: ["速度快", "一体化"]
+      cons: ["较新，生态不成熟"]
+  recommended_option: "ESLint + Prettier"
+  recommendation_reason: "行业标准代码规范方案"
+  depends_on: []
+  blocks: ["DEC-012"]
+  unlocks: ["DEC-013"]
+  affected_foundations: ["FND-007"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-007"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-006"]
+  principles: ["PRI-006"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "无迁移影响"
+  risk: "LOW"
+  evidence: "ESLint + Prettier 是行业标准代码规范方案"
+  confidence: "HIGH"
+
+LOCK-007:
+  title: "测试框架 - Vitest + React Testing Library"
+  category: "工程规范"
+  current_reality: "使用 Vitest + React Testing Library 进行单元测试"
+  existing_decision: "采用 Vitest + React Testing Library 进行前端测试"
+  expected_design: "统一使用 Vitest + React Testing Library"
+  question: "前端测试框架应该选择什么？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "LOCKED"
+  options:
+    - option: "Vitest + React Testing Library"
+      pros: ["与 Vite 集成好", "速度快", "React 官方推荐"]
+      cons: ["配置复杂"]
+    - option: "Jest + React Testing Library"
+      pros: ["生态成熟", "文档完善"]
+      cons: ["与 Vite 集成差"]
+  recommended_option: "Vitest + React Testing Library"
+  recommendation_reason: "与 Vite 构建工具完美集成"
+  depends_on: ["LOCK-005"]
+  blocks: ["DEC-014"]
+  unlocks: []
+  affected_foundations: ["FND-008"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-008"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-007"]
+  principles: ["PRI-007"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "无迁移影响"
+  risk: "LOW"
+  evidence: "Vitest 是 Vite 生态标准测试框架"
+  confidence: "HIGH"
+
+LOCK-008:
+  title: "API 通信方案 - Axios"
+  category: "技术架构"
+  current_reality: "使用 Axios 进行 HTTP 请求"
+  existing_decision: "采用 Axios 作为 HTTP 客户端"
+  expected_design: "统一使用 Axios，禁止直接使用 fetch"
+  question: "HTTP 客户端应该选择什么？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "LOCKED"
+  options:
+    - option: "Axios"
+      pros: ["功能丰富", "拦截器支持", "取消请求"]
+      cons: ["包体积较大"]
+    - option: "Fetch API"
+      pros: ["原生支持", "轻量级"]
+      cons: ["功能有限", "需要封装"]
+  recommended_option: "Axios"
+  recommendation_reason: "企业级 HTTP 客户端的最佳选择"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-009"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-009"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-008"]
+  principles: ["PRI-008"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "无迁移影响"
+  risk: "LOW"
+  evidence: "Axios 是企业级 HTTP 客户端标准方案"
+  confidence: "HIGH"
+
+LOCK-009:
+  title: "国际化方案 - react-i18next"
+  category: "技术架构"
+  current_reality: "使用 react-i18next 进行国际化"
+  existing_decision: "采用 react-i18next 实现多语言支持"
+  expected_design: "统一使用 react-i18next，禁止引入其他国际化库"
+  question: "国际化应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "LOCKED"
+  options:
+    - option: "react-i18next"
+      pros: ["功能完善", "社区活跃", "TypeScript 支持"]
+      cons: ["配置复杂"]
+    - option: "react-intl"
+      pros: ["标准化", "格式化功能强"]
+      cons: ["学习曲线陡峭"]
+  recommended_option: "react-i18next"
+  recommendation_reason: "React 生态国际化标准方案"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-010"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-010"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-009"]
+  principles: ["PRI-009"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "无迁移影响"
+  risk: "LOW"
+  evidence: "react-i18next 是 React 生态国际化标准方案"
+  confidence: "HIGH"
+
+LOCK-010:
+  title: "数据可视化 - ECharts"
+  category: "技术架构"
+  current_reality: "使用 ECharts 进行数据可视化"
+  existing_decision: "采用 ECharts 作为图表库"
+  expected_design: "统一使用 ECharts，禁止引入其他图表库"
+  question: "数据可视化应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "LOCKED"
+  options:
+    - option: "ECharts"
+      pros: ["功能丰富", "图表类型多", "性能好"]
+      cons: ["包体积大"]
+    - option: "Chart.js"
+      pros: ["轻量级", "简单易用"]
+      cons: ["功能有限"]
+  recommended_option: "ECharts"
+  recommendation_reason: "企业级数据可视化的最佳选择"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-011"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-011"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-010"]
+  principles: ["PRI-010"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "无迁移影响"
+  risk: "LOW"
+  evidence: "ECharts 是企业级数据可视化标准方案"
+  confidence: "HIGH"
+
+# ============================================================================
+# DEC-001~014: 原始决策（更新状态）
+# ============================================================================
+
+DEC-001:
+  title: "用户认证方案 - JWT"
+  category: "安全架构"
+  current_reality: "使用 JWT 进行用户认证"
+  existing_decision: "采用 JWT Token 进行用户身份认证"
+  expected_design: "统一使用 JWT，禁止引入其他认证方案"
+  question: "用户认证应该采用什么方案？"
+  decision_type: "SECURITY"
+  status: "ACTIVE"
+  options:
+    - option: "JWT"
+      pros: ["无状态", "可扩展", "跨域支持"]
+      cons: ["Token 无法撤销", "需要安全存储"]
+    - option: "Session"
+      pros: ["简单", "可撤销"]
+      cons: ["有状态", "扩展性差"]
+  recommended_option: "JWT"
+  recommendation_reason: "无状态认证方案，适合分布式系统"
+  depends_on: ["LOCK-001"]
+  blocks: ["DEC-002"]
+  unlocks: ["DEC-003"]
+  affected_foundations: ["FND-012"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-012"]
+  affected_transactions: ["TRX-001"]
+  affected_domains: ["DOM-002"]
+  affected_tables: ["TBL-001"]
+  affected_apis: ["API-001"]
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-011"]
+  principles: ["PRI-011"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "LOW"
+    description: "需要更新认证逻辑"
+  risk: "LOW"
+  evidence: "JWT 是现代 Web 应用认证标准"
+  confidence: "HIGH"
+
+DEC-002:
+  title: "权限控制方案 - RBAC"
+  category: "安全架构"
+  current_reality: "使用 RBAC 进行权限控制"
+  existing_decision: "采用 RBAC 模型进行权限管理"
+  expected_design: "统一使用 RBAC，禁止引入其他权限模型"
+  question: "权限控制应该采用什么模型？"
+  decision_type: "SECURITY"
+  status: "ACTIVE"
+  options:
+    - option: "RBAC"
+      pros: ["简单", "易管理", "适合企业应用"]
+      cons: ["灵活性有限"]
+    - option: "ABAC"
+      pros: ["灵活", "细粒度控制"]
+      cons: ["复杂", "性能开销大"]
+  recommended_option: "RBAC"
+  recommendation_reason: "企业级权限管理的标准模型"
+  depends_on: ["DEC-001"]
+  blocks: ["DEC-004"]
+  unlocks: ["DEC-005"]
+  affected_foundations: ["FND-013"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-013"]
+  affected_transactions: ["TRX-002"]
+  affected_domains: ["DOM-002"]
+  affected_tables: ["TBL-002"]
+  affected_apis: ["API-002"]
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-012"]
+  principles: ["PRI-012"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "LOW"
+    description: "需要更新权限逻辑"
+  risk: "LOW"
+  evidence: "RBAC 是企业级权限管理标准模型"
+  confidence: "HIGH"
+
+DEC-003:
+  title: "缓存策略 - Redis"
+  category: "性能架构"
+  current_reality: "使用 Redis 进行数据缓存"
+  existing_decision: "采用 Redis 作为缓存中间件"
+  expected_design: "统一使用 Redis，禁止引入其他缓存方案"
+  question: "缓存应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "ACTIVE"
+  options:
+    - option: "Redis"
+      pros: ["性能高", "数据结构丰富", "持久化"]
+      cons: ["内存占用大"]
+    - option: "Memcached"
+      pros: ["简单", "轻量级"]
+      cons: ["功能有限", "无持久化"]
+  recommended_option: "Redis"
+  recommendation_reason: "企业级缓存的标准方案"
+  depends_on: ["LOCK-001"]
+  blocks: ["DEC-006"]
+  unlocks: ["DEC-007"]
+  affected_foundations: ["FND-014"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-014"]
+  affected_transactions: ["TRX-003"]
+  affected_domains: ["DOM-002"]
+  affected_tables: ["TBL-003"]
+  affected_apis: ["API-003"]
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-013"]
+  principles: ["PRI-013"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "LOW"
+    description: "需要配置 Redis 集群"
+  risk: "LOW"
+  evidence: "Redis 是企业级缓存标准方案"
+  confidence: "HIGH"
+
+DEC-004:
+  title: "日志方案 - Winston"
+  category: "工程规范"
+  current_reality: "使用 Winston 进行日志管理"
+  existing_decision: "采用 Winston 作为日志框架"
+  expected_design: "统一使用 Winston，禁止直接使用 console.log"
+  question: "日志管理应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "ACTIVE"
+  options:
+    - option: "Winston"
+      pros: ["功能丰富", "多传输支持", "格式化"]
+      cons: ["配置复杂"]
+    - option: "Pino"
+      pros: ["性能高", "结构化日志"]
+      cons: ["功能相对简单"]
+  recommended_option: "Winston"
+  recommendation_reason: "Node.js 生态日志管理标准方案"
+  depends_on: ["LOCK-001"]
+  blocks: ["DEC-008"]
+  unlocks: ["DEC-009"]
+  affected_foundations: ["FND-015"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-015"]
+  affected_transactions: ["TRX-004"]
+  affected_domains: ["DOM-002"]
+  affected_tables: ["TBL-004"]
+  affected_apis: ["API-004"]
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-014"]
+  principles: ["PRI-014"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "LOW"
+    description: "需要配置日志系统"
+  risk: "LOW"
+  evidence: "Winston 是 Node.js 生态日志管理标准方案"
+  confidence: "HIGH"
+
+DEC-005:
+  title: "消息队列 - RabbitMQ"
+  category: "架构设计"
+  current_reality: "使用 RabbitMQ 进行消息队列"
+  existing_decision: "采用 RabbitMQ 作为消息中间件"
+  expected_design: "统一使用 RabbitMQ，禁止引入其他消息队列"
+  question: "消息队列应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "ACTIVE"
+  options:
+    - option: "RabbitMQ"
+      pros: ["可靠性高", "路由灵活", "管理界面"]
+      cons: ["性能相对较低"]
+    - option: "Kafka"
+      pros: ["高吞吐", "持久化"]
+      cons: ["配置复杂", "运维成本高"]
+  recommended_option: "RabbitMQ"
+  recommendation_reason: "企业级消息队列的标准方案"
+  depends_on: ["LOCK-001"]
+  blocks: ["DEC-010"]
+  unlocks: ["DEC-011"]
+  affected_foundations: ["FND-016"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-016"]
+  affected_transactions: ["TRX-005"]
+  affected_domains: ["DOM-002"]
+  affected_tables: ["TBL-005"]
+  affected_apis: ["API-005"]
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-015"]
+  principles: ["PRI-015"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "LOW"
+    description: "需要配置消息队列"
+  risk: "LOW"
+  evidence: "RabbitMQ 是企业级消息队列标准方案"
+  confidence: "HIGH"
+
+DEC-006:
+  title: "数据库选型 - PostgreSQL"
+  category: "数据架构"
+  current_reality: "使用 PostgreSQL 作为主数据库"
+  existing_decision: "采用 PostgreSQL 作为关系型数据库"
+  expected_design: "统一使用 PostgreSQL，禁止引入其他关系型数据库"
+  question: "关系型数据库应该选择什么？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "NEEDS_REVISION"
+  options:
+    - option: "PostgreSQL"
+      pros: ["功能丰富", "扩展性好", "JSON 支持"]
+      cons: ["运维复杂"]
+    - option: "MySQL"
+      pros: ["简单", "成熟", "社区大"]
+      cons: ["功能相对简单"]
+  recommended_option: "PostgreSQL"
+  recommendation_reason: "企业级关系型数据库的最佳选择"
+  depends_on: ["LOCK-001"]
+  blocks: ["DEC-012"]
+  unlocks: ["DEC-013"]
+  affected_foundations: ["FND-017"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-017"]
+  affected_transactions: ["TRX-006"]
+  affected_domains: ["DOM-003"]
+  affected_tables: ["TBL-006"]
+  affected_apis: ["API-006"]
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-016"]
+  principles: ["PRI-016"]
+  root_causes:
+    - "需要评估数据量和并发需求"
+    - "需要确认是否需要分库分表"
+  remediation_candidates:
+    - "评估 PostgreSQL 是否满足性能需求"
+    - "考虑是否需要引入分库分表方案"
+  migration_impact:
+    level: "MEDIUM"
+    description: "需要评估数据迁移方案"
+  risk: "MEDIUM"
+  evidence: "需要进一步评估数据架构需求"
+  confidence: "MEDIUM"
+
+DEC-007:
+  title: "ORM 方案 - Prisma"
+  category: "数据架构"
+  current_reality: "使用 Prisma 进行数据库操作"
+  existing_decision: "采用 Prisma 作为 ORM 框架"
+  expected_design: "统一使用 Prisma，禁止直接编写 SQL"
+  question: "ORM 应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "ACTIVE"
+  options:
+    - option: "Prisma"
+      pros: ["类型安全", "迁移支持", "文档完善"]
+      cons: ["性能开销", "学习曲线"]
+    - option: "TypeORM"
+      pros: ["装饰器风格", "功能丰富"]
+      cons: ["TypeScript 支持一般"]
+  recommended_option: "Prisma"
+  recommendation_reason: "现代化 ORM 的最佳选择"
+  depends_on: ["DEC-006"]
+  blocks: ["DEC-014"]
+  unlocks: []
+  affected_foundations: ["FND-018"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-018"]
+  affected_transactions: ["TRX-007"]
+  affected_domains: ["DOM-003"]
+  affected_tables: ["TBL-007"]
+  affected_apis: ["API-007"]
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-017"]
+  principles: ["PRI-017"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "LOW"
+    description: "需要配置 Prisma"
+  risk: "LOW"
+  evidence: "Prisma 是现代化 ORM 标准方案"
+  confidence: "HIGH"
+
+DEC-008:
+  title: "UI 组件定制方案 - CSS-in-JS"
+  category: "UI/UX"
+  current_reality: "使用 CSS-in-JS 进行组件样式定制"
+  existing_decision: "采用 CSS-in-JS 方案进行样式定制"
+  expected_design: "统一使用 CSS-in-JS，禁止引入其他样式方案"
+  question: "组件样式定制应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "SUPERSEDED"
+  superseded_by: "LOCK-003"
+  options:
+    - option: "CSS-in-JS"
+      pros: ["组件化", "动态样式", "作用域隔离"]
+      cons: ["运行时开销", "调试困难"]
+    - option: "CSS Modules"
+      pros: ["编译时处理", "性能好"]
+      cons: ["动态样式支持有限"]
+  recommended_option: "CSS-in-JS"
+  recommendation_reason: "已被 LOCK-003 (Ant Design) 取代"
+  depends_on: ["LOCK-004"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-019"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-019"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-018"]
+  principles: ["PRI-018"]
+  root_causes:
+    - "Ant Design 自带样式系统，不需要额外的 CSS-in-JS 方案"
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "已被 Ant Design 取消"
+  risk: "LOW"
+  evidence: "Ant Design 5.x 使用 CSS-in-JS，但由组件库内部管理"
+  confidence: "HIGH"
+
+DEC-009:
+  title: "表单方案 - Formily"
+  category: "UI/UX"
+  current_reality: "使用 Formily 进行表单管理"
+  existing_decision: "采用 Formily 作为表单框架"
+  expected_design: "统一使用 Formily，禁止引入其他表单库"
+  question: "表单管理应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "NEEDS_REFINEMENT"
+  options:
+    - option: "Formily"
+      pros: ["表单能力强", "Schema 驱动", "跨框架"]
+      cons: ["学习曲线陡峭", "文档不完善"]
+    - option: "Ant Design Form"
+      pros: ["与 Ant Design 集成好", "简单易用"]
+      cons: ["功能相对简单"]
+  recommended_option: "Formily"
+  recommendation_reason: "需要进一步评估 Ant Design Form 是否满足需求"
+  depends_on: ["LOCK-004"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-020"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-020"]
+  affected_transactions: ["TRX-008"]
+  affected_domains: ["DOM-001"]
+  affected_tables: ["TBL-008"]
+  affected_apis: ["API-008"]
+  affected_pages: ["PAGE-001"]
+  affected_dialogs: ["DLG-001"]
+  requirements: ["REQ-019"]
+  principles: ["PRI-019"]
+  root_causes:
+    - "需要评估复杂表单场景的需求"
+    - "需要确认是否真的需要 Formily 的高级功能"
+  remediation_candidates:
+    - "先尝试 Ant Design Form，如不满足再引入 Formily"
+    - "评估团队学习成本"
+  migration_impact:
+    level: "MEDIUM"
+    description: "需要评估表单复杂度需求"
+  risk: "MEDIUM"
+  evidence: "需要进一步评估表单需求复杂度"
+  confidence: "MEDIUM"
+
+DEC-010:
+  title: "部署方案 - Docker + Kubernetes"
+  category: "运维架构"
+  current_reality: "使用 Docker + Kubernetes 进行容器化部署"
+  existing_decision: "采用 Docker + Kubernetes 进行容器编排"
+  expected_design: "统一使用 Docker + Kubernetes，禁止直接部署"
+  question: "部署方案应该选择什么？"
+  decision_type: "INFRASTRUCTURE"
+  status: "ACTIVE"
+  options:
+    - option: "Docker + Kubernetes"
+      pros: ["容器化", "可扩展", "自愈能力强"]
+      cons: ["复杂", "学习成本高"]
+    - option: "Docker Compose"
+      pros: ["简单", "开发环境适用"]
+      cons: ["不适合生产环境"]
+  recommended_option: "Docker + Kubernetes"
+  recommendation_reason: "企业级容器编排的标准方案"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-021"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-021"]
+  affected_transactions: []
+  affected_domains: ["DOM-004"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-020"]
+  principles: ["PRI-020"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "LOW"
+    description: "需要配置 Kubernetes 集群"
+  risk: "LOW"
+  evidence: "Docker + Kubernetes 是企业级部署标准方案"
+  confidence: "HIGH"
+
+DEC-011:
+  title: "CI/CD 方案 - GitLab CI"
+  category: "工程规范"
+  current_reality: "使用 GitLab CI 进行持续集成"
+  existing_decision: "采用 GitLab CI 进行 CI/CD 流水线"
+  expected_design: "统一使用 GitLab CI，禁止引入其他 CI/CD 工具"
+  question: "CI/CD 应该采用什么方案？"
+  decision_type: "PROCESS"
+  status: "ACTIVE"
+  options:
+    - option: "GitLab CI"
+      pros: ["与 GitLab 集成", "配置简单", "免费"]
+      cons: ["功能相对有限"]
+    - option: "GitHub Actions"
+      pros: ["功能丰富", "社区大"]
+      cons: ["需要 GitHub 账号", "私有仓库限制"]
+  recommended_option: "GitLab CI"
+  recommendation_reason: "与代码仓库完美集成"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-022"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-022"]
+  affected_transactions: []
+  affected_domains: ["DOM-004"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-021"]
+  principles: ["PRI-021"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "LOW"
+    description: "需要配置 CI/CD 流水线"
+  risk: "LOW"
+  evidence: "GitLab CI 是与代码仓库集成的标准方案"
+  confidence: "HIGH"
+
+DEC-012:
+  title: "监控方案 - Prometheus + Grafana"
+  category: "运维架构"
+  current_reality: "使用 Prometheus + Grafana 进行系统监控"
+  existing_decision: "采用 Prometheus + Grafana 进行监控告警"
+  expected_design: "统一使用 Prometheus + Grafana，禁止引入其他监控工具"
+  question: "监控方案应该选择什么？"
+  decision_type: "INFRASTRUCTURE"
+  status: "ACTIVE"
+  options:
+    - option: "Prometheus + Grafana"
+      pros: ["开源", "功能强大", "可视化好"]
+      cons: ["配置复杂"]
+    - option: "Datadog"
+      pros: ["简单", "功能全面"]
+      cons: ["成本高"]
+  recommended_option: "Prometheus + Grafana"
+  recommendation_reason: "开源监控的标准方案"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-023"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-023"]
+  affected_transactions: []
+  affected_domains: ["DOM-004"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-022"]
+  principles: ["PRI-022"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "LOW"
+    description: "需要配置监控系统"
+  risk: "LOW"
+  evidence: "Prometheus + Grafana 是开源监控标准方案"
+  confidence: "HIGH"
+
+DEC-013:
+  title: "文档方案 - Swagger + TypeDoc"
+  category: "工程规范"
+  current_reality: "使用 Swagger + TypeDoc 进行 API 文档"
+  existing_decision: "采用 Swagger + TypeDoc 进行文档管理"
+  expected_design: "统一使用 Swagger + TypeDoc，禁止手动编写文档"
+  question: "文档管理应该采用什么方案？"
+  decision_type: "PROCESS"
+  status: "ACTIVE"
+  options:
+    - option: "Swagger + TypeDoc"
+      pros: ["自动生成", "格式统一", "易于维护"]
+      cons: ["配置复杂"]
+    - option: "Postman"
+      pros: ["简单", "可视化"]
+      cons: ["不够规范"]
+  recommended_option: "Swagger + TypeDoc"
+  recommendation_reason: "API 文档的标准方案"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-024"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-024"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-023"]
+  principles: ["PRI-023"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "LOW"
+    description: "需要配置文档生成"
+  risk: "LOW"
+  evidence: "Swagger + TypeDoc 是 API 文档标准方案"
+  confidence: "HIGH"
+
+DEC-014:
+  title: "错误处理方案 - 统一错误码"
+  category: "工程规范"
+  current_reality: "使用统一错误码进行错误处理"
+  existing_decision: "采用统一错误码体系进行错误处理"
+  expected_design: "统一使用错误码，禁止随意抛出异常"
+  question: "错误处理应该采用什么方案？"
+  decision_type: "PROCESS"
+  status: "ACTIVE"
+  options:
+    - option: "统一错误码"
+      pros: ["规范", "易于处理", "国际化支持"]
+      cons: ["需要维护错误码表"]
+    - option: "自由格式"
+      pros: ["灵活", "简单"]
+      cons: ["不规范", "难以处理"]
+  recommended_option: "统一错误码"
+  recommendation_reason: "企业级错误处理的标准方案"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-025"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-025"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-024"]
+  principles: ["PRI-024"]
+  root_causes: []
+  remediation_candidates: []
+  migration_impact:
+    level: "LOW"
+    description: "需要定义错误码体系"
+  risk: "LOW"
+  evidence: "统一错误码是企业级错误处理标准方案"
+  confidence: "HIGH"
+
+# ============================================================================
+# IMPLICIT-001~006: 隐含决策（SUBSUMED）
+# ============================================================================
+
+IMPLICIT-001:
+  title: "前端状态管理 - Redux"
+  category: "技术架构"
+  current_reality: "隐含使用 Redux 进行状态管理"
+  existing_decision: "使用 Redux 进行状态管理（隐含决策）"
+  expected_design: "已被 LOCK-002 (Redux Toolkit) 取代"
+  question: "前端状态管理应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "SUBSUMED"
+  subsumed_by: "LOCK-002"
+  options:
+    - option: "Redux"
+      pros: ["生态成熟", "功能强大"]
+      cons: ["模板代码多", "配置复杂"]
+    - option: "Redux Toolkit"
+      pros: ["简化 Redux", "官方推荐", "TypeScript 支持好"]
+      cons: ["学习曲线"]
+  recommended_option: "Redux Toolkit"
+  recommendation_reason: "已被 LOCK-002 (Redux Toolkit) 完全取代"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-026"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-026"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-025"]
+  principles: ["PRI-025"]
+  root_causes:
+    - "Redux Toolkit 是 Redux 的官方增强版，完全取代了传统 Redux"
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "已被 Redux Toolkit 取代"
+  risk: "LOW"
+  evidence: "Redux Toolkit 是 Redux 的官方增强版"
+  confidence: "HIGH"
+
+IMPLICIT-002:
+  title: "前端路由 - React Router"
+  category: "技术架构"
+  current_reality: "隐含使用 React Router 进行路由"
+  existing_decision: "使用 React Router 进行路由（隐含决策）"
+  expected_design: "已被 LOCK-003 (React Router v6) 取代"
+  question: "前端路由应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "SUBSUMED"
+  subsumed_by: "LOCK-003"
+  options:
+    - option: "React Router v5"
+      pros: ["稳定", "文档完善"]
+      cons: ["配置复杂", "性能一般"]
+    - option: "React Router v6"
+      pros: ["简化配置", "性能提升", "TypeScript 支持好"]
+      cons: ["迁移成本"]
+  recommended_option: "React Router v6"
+  recommendation_reason: "已被 LOCK-003 (React Router v6) 完全取代"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-027"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-027"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-026"]
+  principles: ["PRI-026"]
+  root_causes:
+    - "React Router v6 是 React Router 的最新版本，完全取代了 v5"
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "已被 React Router v6 取代"
+  risk: "LOW"
+  evidence: "React Router v6 是 React Router 的最新版本"
+  confidence: "HIGH"
+
+IMPLICIT-003:
+  title: "UI 组件 - 自定义组件"
+  category: "UI/UX"
+  current_reality: "隐含使用自定义 UI 组件"
+  existing_decision: "使用自定义 UI 组件（隐含决策）"
+  expected_design: "已被 LOCK-004 (Ant Design) 取代"
+  question: "UI 组件应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "SUBSUMED"
+  subsumed_by: "LOCK-004"
+  options:
+    - option: "自定义组件"
+      pros: ["完全可控", "定制性强"]
+      cons: ["开发成本高", "维护困难"]
+    - option: "Ant Design"
+      pros: ["组件丰富", "文档完善", "企业级"]
+      cons: ["包体积大"]
+  recommended_option: "Ant Design"
+  recommendation_reason: "已被 LOCK-004 (Ant Design) 完全取代"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-028"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-028"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-027"]
+  principles: ["PRI-027"]
+  root_causes:
+    - "Ant Design 提供了完整的企业级组件库，不需要自定义组件"
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "已被 Ant Design 取代"
+  risk: "LOW"
+  evidence: "Ant Design 是企业级 UI 组件标准方案"
+  confidence: "HIGH"
+
+IMPLICIT-004:
+  title: "构建工具 - Webpack"
+  category: "技术架构"
+  current_reality: "隐含使用 Webpack 进行构建"
+  existing_decision: "使用 Webpack 进行构建（隐含决策）"
+  expected_design: "已被 LOCK-005 (Vite) 取代"
+  question: "构建工具应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "SUBSUMED"
+  subsumed_by: "LOCK-005"
+  options:
+    - option: "Webpack"
+      pros: ["生态成熟", "插件丰富"]
+      cons: ["配置复杂", "构建速度慢"]
+    - option: "Vite"
+      pros: ["开发速度快", "配置简单", "HMR 高效"]
+      cons: ["插件生态相对较小"]
+  recommended_option: "Vite"
+  recommendation_reason: "已被 LOCK-005 (Vite) 完全取代"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-029"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-029"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-028"]
+  principles: ["PRI-028"]
+  root_causes:
+    - "Vite 是现代前端构建工具，完全取代了 Webpack"
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "已被 Vite 取代"
+  risk: "LOW"
+  evidence: "Vite 是现代前端构建工具标准方案"
+  confidence: "HIGH"
+
+IMPLICIT-005:
+  title: "HTTP 客户端 - Fetch API"
+  category: "技术架构"
+  current_reality: "隐含使用 Fetch API 进行 HTTP 请求"
+  existing_decision: "使用 Fetch API 进行 HTTP 请求（隐含决策）"
+  expected_design: "已被 LOCK-008 (Axios) 取代"
+  question: "HTTP 客户端应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "SUBSUMED"
+  subsumed_by: "LOCK-008"
+  options:
+    - option: "Fetch API"
+      pros: ["原生支持", "轻量级"]
+      cons: ["功能有限", "需要封装"]
+    - option: "Axios"
+      pros: ["功能丰富", "拦截器支持", "取消请求"]
+      cons: ["包体积较大"]
+  recommended_option: "Axios"
+  recommendation_reason: "已被 LOCK-008 (Axios) 完全取代"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-030"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-030"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-029"]
+  principles: ["PRI-029"]
+  root_causes:
+    - "Axios 是企业级 HTTP 客户端，完全取代了 Fetch API"
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "已被 Axios 取代"
+  risk: "LOW"
+  evidence: "Axios 是企业级 HTTP 客户端标准方案"
+  confidence: "HIGH"
+
+IMPLICIT-006:
+  title: "国际化 - 自定义方案"
+  category: "技术架构"
+  current_reality: "隐含使用自定义国际化方案"
+  existing_decision: "使用自定义国际化方案（隐含决策）"
+  expected_design: "已被 LOCK-009 (react-i18next) 取代"
+  question: "国际化应该采用什么方案？"
+  decision_type: "TECHNOLOGY_SELECTION"
+  status: "SUBSUMED"
+  subsumed_by: "LOCK-009"
+  options:
+    - option: "自定义方案"
+      pros: ["完全可控", "轻量级"]
+      cons: ["维护困难", "功能有限"]
+    - option: "react-i18next"
+      pros: ["功能完善", "社区活跃", "TypeScript 支持"]
+      cons: ["配置复杂"]
+  recommended_option: "react-i18next"
+  recommendation_reason: "已被 LOCK-009 (react-i18next) 完全取代"
+  depends_on: ["LOCK-001"]
+  blocks: []
+  unlocks: []
+  affected_foundations: ["FND-031"]
+  affected_master_data: []
+  affected_capabilities: ["CAP-031"]
+  affected_transactions: []
+  affected_domains: ["DOM-001"]
+  affected_tables: []
+  affected_apis: []
+  affected_pages: []
+  affected_dialogs: []
+  requirements: ["REQ-030"]
+  principles: ["PRI-030"]
+  root_causes:
+    - "react-i18next 是 React 生态国际化标准方案，完全取代了自定义方案"
+  remediation_candidates: []
+  migration_impact:
+    level: "NONE"
+    description: "已被 react-i18next 取代"
+  risk: "LOW"
+  evidence: "react-i18next 是 React 生态国际化标准方案"
+  confidence: "HIGH"
